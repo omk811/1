@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>العلاقات بين الجمل — الصف الخامس</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #1a3a5c;
+  --primary-mid: #1e5f8e;
+  --primary-light: #d6e8f7;
+  --gold: #c9920a;
+  --gold-light: #fef3d0;
+  --white: #ffffff;
+  --bg: #f0f4f8;
+  --card: #ffffff;
+  --border: #d0dbe8;
+  --text: #1a2535;
+  --muted: #5a718a;
+  --success: #1a7a45;
+  --success-bg: #e6f7ee;
+  --success-border: #7fcca0;
+  --error: #b8201e;
+  --error-bg: #fdecea;
+  --error-border: #f0a0a0;
+
+  --c-taleeliya: #6c3483;
+  --c-taleeliya-bg: #f5eef8;
+  --c-taleeliya-border: #c39bd3;
+
+  --c-tafsiria: #0e6655;
+  --c-tafsiria-bg: #e8f8f5;
+  --c-tafsiria-border: #76c7b7;
+
+  --c-sabab: #922b21;
+  --c-sabab-bg: #fdedec;
+  --c-sabab-border: #f1948a;
+
+  --c-tafsel: #795210;
+  --c-tafsel-bg: #fef9e7;
+  --c-tafsel-border: #f0ce74;
+
+  --c-ijmal: #1a3a5c;
+  --c-ijmal-bg: #d6e8f7;
+  --c-ijmal-border: #7fb3d3;
+}
+
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── PAGE HEADER ── */
+.page-header {
+  background: var(--primary);
+  color: #fff;
+  padding: 28px 20px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.page-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(255,255,255,0.03) 30px, rgba(255,255,255,0.03) 60px);
+}
+.page-header .school-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 30px;
+  padding: 4px 18px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+.page-header h1 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  font-family: 'Amiri', serif;
+}
+.page-header .subtitle {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+}
+.gold-line { width: 60px; height: 3px; background: var(--gold); margin: 12px auto 0; border-radius: 2px; }
+
+/* ── MAIN CONTAINER ── */
+.container { max-width: 820px; margin: 0 auto; padding: 24px 16px 48px; }
+
+/* ── TABS ── */
+.tabs-nav {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 8px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(26,58,92,0.07);
+}
+.tab-btn {
+  flex: 1;
+  min-width: 100px;
+  padding: 9px 12px;
+  font-size: 13px;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 500;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+.tab-btn:hover { background: var(--primary-light); color: var(--primary); }
+.tab-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); box-shadow: 0 2px 8px rgba(26,58,92,0.25); }
+.tab-btn .tab-icon { display: block; font-size: 18px; margin-bottom: 2px; }
+
+/* ── SECTION ── */
+.section { display: none; animation: fadeIn 0.25s ease; }
+.section.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* ── RELATION CARD ── */
+.rel-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px 22px;
+  margin-bottom: 18px;
+  border-right: 5px solid var(--primary);
+  box-shadow: 0 2px 10px rgba(26,58,92,0.06);
+  transition: box-shadow 0.2s;
+}
+.rel-card:hover { box-shadow: 0 4px 18px rgba(26,58,92,0.12); }
+
+.rel-card.taleeliya  { border-right-color: var(--c-taleeliya); }
+.rel-card.tafsiria   { border-right-color: var(--c-tafsiria); }
+.rel-card.sabab      { border-right-color: var(--c-sabab); }
+.rel-card.tafsel     { border-right-color: var(--c-tafsel); }
+.rel-card.ijmal      { border-right-color: var(--c-ijmal); }
+
+.rel-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.rel-icon {
+  width: 40px; height: 40px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0;
+}
+.taleeliya .rel-icon { background: var(--c-taleeliya-bg); }
+.tafsiria  .rel-icon { background: var(--c-tafsiria-bg); }
+.sabab     .rel-icon { background: var(--c-sabab-bg); }
+.tafsel    .rel-icon { background: var(--c-tafsel-bg); }
+.ijmal     .rel-icon { background: var(--c-ijmal-bg); }
+
+.rel-title { font-size: 17px; font-weight: 700; }
+.taleeliya .rel-title { color: var(--c-taleeliya); }
+.tafsiria  .rel-title { color: var(--c-tafsiria); }
+.sabab     .rel-title { color: var(--c-sabab); }
+.tafsel    .rel-title { color: var(--c-tafsel); }
+.ijmal     .rel-title { color: var(--c-ijmal); }
+
+.rel-num { font-size: 11px; background: var(--bg); border-radius: 20px; padding: 2px 8px; color: var(--muted); font-weight: 400; margin-right: auto; }
+
+.rel-def {
+  font-size: 14px; color: var(--muted);
+  line-height: 1.9; margin-bottom: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--bg);
+  border-right: 3px solid var(--border);
+}
+
+.signal-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.signal-pill {
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid;
+  font-weight: 600;
+}
+.taleeliya .signal-pill { background: var(--c-taleeliya-bg); color: var(--c-taleeliya); border-color: var(--c-taleeliya-border); }
+.tafsiria  .signal-pill { background: var(--c-tafsiria-bg); color: var(--c-tafsiria); border-color: var(--c-tafsiria-border); }
+.sabab     .signal-pill { background: var(--c-sabab-bg); color: var(--c-sabab); border-color: var(--c-sabab-border); }
+.tafsel    .signal-pill { background: var(--c-tafsel-bg); color: var(--c-tafsel); border-color: var(--c-tafsel-border); }
+.ijmal     .signal-pill { background: var(--c-ijmal-bg); color: var(--c-ijmal); border-color: var(--c-ijmal-border); }
+
+.examples-grid { display: flex; flex-direction: column; gap: 8px; }
+.ex-block {
+  border-radius: 10px;
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  font-size: 14px;
+  line-height: 2;
+}
+.ex-num { font-size: 11px; color: var(--muted); display: block; margin-bottom: 2px; }
+.p1 { color: #1a3a5c; }
+.p2 { color: #0e6655; }
+.kw { font-weight: 700; color: var(--gold); }
+.kw.taleeliya { color: var(--c-taleeliya); }
+.kw.tafsiria  { color: var(--c-tafsiria); }
+.kw.sabab     { color: var(--c-sabab); }
+.kw.tafsel    { color: var(--c-tafsel); }
+.kw.ijmal     { color: var(--c-ijmal); }
+
+/* ── COMPARE TABLE ── */
+.comp-wrap { overflow-x: auto; border-radius: 14px; box-shadow: 0 2px 10px rgba(26,58,92,0.08); }
+.comp-table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 560px; }
+.comp-table thead tr { background: var(--primary); }
+.comp-table th { padding: 12px 14px; color: #fff; font-weight: 600; text-align: right; }
+.comp-table td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.8; }
+.comp-table tr:nth-child(even) td { background: var(--bg); }
+.comp-table tr:last-child td { border-bottom: none; }
+.comp-table .rname { font-weight: 700; }
+.note-box {
+  margin-top: 16px;
+  background: var(--gold-light);
+  border: 1px solid var(--gold);
+  border-right: 4px solid var(--gold);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--text);
+}
+.note-box strong { color: var(--gold); }
+
+/* ── QUIZ ── */
+.quiz-header-bar {
+  display: flex;
+  align-items: center;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px 18px;
+  margin-bottom: 18px;
+  gap: 16px;
+  box-shadow: 0 2px 8px rgba(26,58,92,0.06);
+}
+.quiz-score-big { font-size: 22px; font-weight: 700; color: var(--primary); white-space: nowrap; }
+.quiz-score-label { font-size: 11px; color: var(--muted); }
+.prog-track { flex: 1; height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; }
+.prog-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--primary-mid)); border-radius: 4px; transition: width 0.4s ease; }
+.prog-pct { font-size: 13px; font-weight: 600; color: var(--primary); white-space: nowrap; }
+
+.q-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 10px rgba(26,58,92,0.06);
+  animation: fadeIn 0.2s ease;
+}
+.q-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.badge { font-size: 11px; padding: 3px 10px; border-radius: 20px; border: 1px solid; font-weight: 600; }
+.badge-mcq  { background: #eaf2fb; color: #1a3a5c; border-color: #a0c0e0; }
+.badge-tf   { background: var(--c-taleeliya-bg); color: var(--c-taleeliya); border-color: var(--c-taleeliya-border); }
+.badge-fill { background: var(--c-tafsiria-bg); color: var(--c-tafsiria); border-color: var(--c-tafsiria-border); }
+.q-num { font-size: 12px; color: var(--muted); margin-right: auto; }
+
+.q-text {
+  font-size: 15px;
+  line-height: 2;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+.q-text em { font-style: normal; font-weight: 700; color: var(--primary); }
+.q-sentence {
+  background: var(--bg);
+  border-right: 4px solid var(--border);
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 8px 0 12px;
+  font-size: 15px;
+  line-height: 2;
+  font-family: 'Amiri', serif;
+}
+
+.opts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.opt-btn {
+  padding: 10px 14px;
+  font-size: 13px;
+  font-family: 'Cairo', sans-serif;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+  text-align: right;
+  line-height: 1.7;
+  transition: all 0.15s;
+  position: relative;
+}
+.opt-btn:hover:not(:disabled) { border-color: var(--primary); color: var(--primary); background: var(--primary-light); }
+.opt-btn.correct { background: var(--success-bg); border-color: var(--success-border); color: var(--success); font-weight: 600; }
+.opt-btn.wrong   { background: var(--error-bg);   border-color: var(--error-border);   color: var(--error); }
+.opt-btn:disabled { cursor: default; }
+.opt-letter { display: inline-block; width: 22px; height: 22px; border-radius: 50%; background: var(--border); color: var(--muted); font-size: 11px; font-weight: 700; text-align: center; line-height: 22px; margin-left: 8px; }
+.opt-btn.correct .opt-letter { background: var(--success); color: #fff; }
+.opt-btn.wrong   .opt-letter { background: var(--error);   color: #fff; }
+
+.tf-row { display: flex; gap: 10px; }
+.tf-btn {
+  flex: 1;
+  padding: 11px;
+  font-size: 15px;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.15s;
+}
+.tf-btn:hover:not(:disabled) { border-color: var(--primary); background: var(--primary-light); color: var(--primary); }
+.tf-btn.correct { background: var(--success-bg); border-color: var(--success-border); color: var(--success); }
+.tf-btn.wrong   { background: var(--error-bg);   border-color: var(--error-border);   color: var(--error); }
+.tf-btn:disabled { cursor: default; }
+
+/* fill in blank */
+.fill-input {
+  width: 100%; padding: 10px 14px;
+  font-size: 14px; font-family: 'Cairo', sans-serif;
+  border: 1px solid var(--border); border-radius: 10px;
+  background: var(--bg); color: var(--text);
+  margin-bottom: 8px; outline: none; transition: border 0.15s;
+  text-align: right;
+}
+.fill-input:focus { border-color: var(--primary); background: var(--card); }
+.fill-input.correct-input { border-color: var(--success-border); background: var(--success-bg); color: var(--success); }
+.fill-input.wrong-input   { border-color: var(--error-border);   background: var(--error-bg);   color: var(--error); }
+.fill-submit {
+  padding: 9px 22px; font-size: 13px; font-family: 'Cairo', sans-serif; font-weight: 600;
+  background: var(--primary); color: #fff; border: none; border-radius: 10px; cursor: pointer;
+  transition: background 0.15s;
+}
+.fill-submit:hover { background: var(--primary-mid); }
+.fill-submit:disabled { background: var(--border); color: var(--muted); cursor: default; }
+
+.feedback {
+  margin-top: 10px; font-size: 13px; padding: 10px 14px;
+  border-radius: 10px; line-height: 1.9;
+  border-right: 4px solid;
+}
+.feedback.correct { background: var(--success-bg); border-color: var(--success-border); color: #0d5c34; }
+.feedback.wrong   { background: var(--error-bg);   border-color: var(--error-border);   color: #7b1111; }
+.feedback .correct-ans { font-weight: 700; color: var(--success); }
+
+/* nav row */
+.nav-row { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; flex-wrap: wrap; gap: 8px; }
+.nav-btn {
+  padding: 9px 20px; font-size: 13px; font-family: 'Cairo', sans-serif; font-weight: 600;
+  border: 1px solid var(--border); border-radius: 10px;
+  background: var(--card); color: var(--text); cursor: pointer;
+  transition: all 0.15s;
+}
+.nav-btn:hover:not(:disabled) { border-color: var(--primary); color: var(--primary); background: var(--primary-light); }
+.nav-btn:disabled { opacity: 0.35; cursor: default; }
+.nav-btn.primary-btn { background: var(--primary); color: #fff; border-color: var(--primary); }
+.nav-btn.primary-btn:hover:not(:disabled) { background: var(--primary-mid); }
+.q-counter { font-size: 13px; color: var(--muted); }
+
+/* result card */
+.result-wrap {
+  text-align: center;
+  background: var(--card);
+  border: 2px solid var(--primary);
+  border-radius: 20px;
+  padding: 40px 20px;
+  box-shadow: 0 4px 24px rgba(26,58,92,0.13);
+}
+.result-big { font-size: 64px; font-weight: 700; color: var(--primary); line-height: 1; }
+.result-of { font-size: 20px; color: var(--muted); margin-bottom: 8px; }
+.result-stars { font-size: 32px; margin: 12px 0; }
+.result-msg { font-size: 16px; line-height: 1.9; margin-bottom: 20px; color: var(--text); }
+.result-breakdown {
+  display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.breakdown-item { background: var(--bg); border-radius: 12px; padding: 12px 20px; min-width: 90px; }
+.breakdown-val { font-size: 22px; font-weight: 700; color: var(--primary); }
+.breakdown-label { font-size: 12px; color: var(--muted); }
+.restart-btn {
+  padding: 12px 32px; font-size: 14px; font-family: 'Cairo', sans-serif; font-weight: 700;
+  background: var(--primary); color: #fff; border: none; border-radius: 12px; cursor: pointer;
+  box-shadow: 0 4px 12px rgba(26,58,92,0.2); transition: all 0.2s;
+  margin: 0 6px;
+}
+.restart-btn:hover { background: var(--primary-mid); transform: translateY(-1px); }
+.restart-btn.sec { background: var(--card); color: var(--primary); border: 1px solid var(--primary); }
+
+/* summary */
+.sum-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.sum-card { border-radius: 14px; padding: 16px; border: 1px solid var(--border); }
+.sum-card .sum-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.sum-card .sum-def { font-size: 12.5px; color: var(--muted); margin-bottom: 8px; line-height: 1.8; }
+.sum-card .sum-keys { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
+.sum-key { font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 16px; border: 1px solid; }
+.sum-card .sum-ex { font-size: 13px; line-height: 1.8; border-radius: 8px; padding: 8px 10px; font-family: 'Amiri', serif; }
+
+.sc1 { background: var(--c-taleeliya-bg); }
+.sc1 .sum-title { color: var(--c-taleeliya); }
+.sc1 .sum-key { background: #fff; color: var(--c-taleeliya); border-color: var(--c-taleeliya-border); }
+.sc1 .sum-ex { background: #ece0f5; }
+
+.sc2 { background: var(--c-tafsiria-bg); }
+.sc2 .sum-title { color: var(--c-tafsiria); }
+.sc2 .sum-key { background: #fff; color: var(--c-tafsiria); border-color: var(--c-tafsiria-border); }
+.sc2 .sum-ex { background: #d1f0e9; }
+
+.sc3 { background: var(--c-sabab-bg); }
+.sc3 .sum-title { color: var(--c-sabab); }
+.sc3 .sum-key { background: #fff; color: var(--c-sabab); border-color: var(--c-sabab-border); }
+.sc3 .sum-ex { background: #fad6d4; }
+
+.sc4 { background: var(--c-tafsel-bg); }
+.sc4 .sum-title { color: var(--c-tafsel); }
+.sc4 .sum-key { background: #fff; color: var(--c-tafsel); border-color: var(--c-tafsel-border); }
+.sc4 .sum-ex { background: #fdeeb0; }
+
+.sc5 { background: var(--c-ijmal-bg); grid-column: 1 / 3; }
+.sc5 .sum-title { color: var(--c-ijmal); }
+.sc5 .sum-key { background: #fff; color: var(--c-ijmal); border-color: var(--c-ijmal-border); }
+.sc5 .sum-ex { background: #b8d4ea; }
+
+.sum-start-btn {
+  display: block; margin: 20px auto 0;
+  padding: 12px 36px; font-size: 15px; font-family: 'Cairo', sans-serif; font-weight: 700;
+  background: var(--primary); color: #fff; border: none; border-radius: 12px; cursor: pointer;
+  box-shadow: 0 4px 14px rgba(26,58,92,0.2);
+}
+
+/* scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+@media (max-width: 540px) {
+  .opts-grid { grid-template-columns: 1fr; }
+  .sum-grid  { grid-template-columns: 1fr; }
+  .sc5 { grid-column: 1; }
+  .tab-btn .tab-icon { font-size: 15px; }
+  .page-header h1 { font-size: 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="school-badge">مدرسة سعد بن معاذ للتعليم الأساسي — شمال الباطنة</div>
+  <h1>العلاقات بين الجمل</h1>
+  <p class="subtitle">مادة لغتي الجميلة — الصف الخامس — الفصل الدراسي الثاني 2025/2026</p>
+  <div class="gold-line"></div>
+</div>
+
+<div class="container">
+
+  <div class="tabs-nav">
+    <button class="tab-btn active" onclick="showTab('lesson')"><span class="tab-icon">📖</span>الدرس والأمثلة</button>
+    <button class="tab-btn" onclick="showTab('compare')"><span class="tab-icon">📊</span>جدول المقارنة</button>
+    <button class="tab-btn" onclick="showTab('quiz')"><span class="tab-icon">✏️</span>التدريبات</button>
+    <button class="tab-btn" onclick="showTab('summary')"><span class="tab-icon">⚡</span>ملخص سريع</button>
+  </div>
+
+  <!-- ═══════════════ LESSON ═══════════════ -->
+  <div id="tab-lesson" class="section active">
+
+    <div class="rel-card taleeliya">
+      <div class="rel-header">
+        <div class="rel-icon">🔍</div>
+        <div>
+          <div class="rel-title">أولاً: العلاقة التعليلية</div>
+        </div>
+        <span class="rel-num">١ من ٥</span>
+      </div>
+      <div class="rel-def">الجملة الأولى تذكر فعلاً أو حدثاً، والجملة الثانية تُبيّن <strong>سببَه أو علّته</strong>. نسأل عن الثانية: لماذا حدث هذا؟</div>
+      <div class="signal-pills">
+        <span class="signal-pill">لأنّ</span>
+        <span class="signal-pill">كي</span>
+        <span class="signal-pill">إذ</span>
+        <span class="signal-pill">حتى</span>
+        <span class="signal-pill">لـِ (اللام)</span>
+      </div>
+      <div class="examples-grid">
+        <div class="ex-block">
+          <span class="ex-num">مثال ١</span>
+          <span class="p1">غاب أحمد عن المدرسة </span><span class="kw taleeliya">لأنّه</span><span class="p2"> كان مريضاً.</span>
+        </div>
+        <div class="ex-block">
+          <span class="ex-num">مثال ٢</span>
+          <span class="p1">أكلتُ الخضراواتِ </span><span class="kw taleeliya">كي</span><span class="p2"> أحافظ على صحّتي.</span>
+        </div>
+        <div class="ex-block">
+          <span class="ex-num">مثال ٣</span>
+          <span class="p1">استيقظتُ مبكّراً </span><span class="kw taleeliya">إذ</span><span class="p2"> كان لديّ موعدٌ مهمّ.</span>
+        </div>
+        <div class="ex-block">
+          <span class="ex-num">مثال ٤</span>
+          <span class="p1">أجيد الرسمَ </span><span class="kw taleeliya">لأنّني</span><span class="p2"> مارستُه كثيراً منذ صغري.</span>
+        </div>
+        <div class="ex-block">
+          <span class="ex-num">مثال ٥</span>
+          <span class="p1">قرأ الكتاب </span><span class="kw taleeliya">لـِ</span><span class="p2">يستفيد من معلوماته القيّمة.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="rel-card tafsiria">
+      <div class="rel-header">
+        <div class="rel-icon">💡</div>
+        <div>
+          <div class="rel-title">ثانياً: العلاقة التفسيرية</div>
+        </div>
+        <span class="rel-num">٢ من ٥</span>
+      </div>
+      <div class="rel-def">الجملة الثانية <strong>تُوضّح معنى الأولى أو تشرحها</strong> بكلمات مختلفة دون إضافة معلومة جديدة. كأنّك تُعيد الكلام بطريقة أُخرى.</div>
+      <div class="signal-pills">
+        <span class="signal-pill">أي</span>
+        <span class="signal-pill">يعني</span>
+        <span class="signal-pill">بمعنى</span>
+        <span class="signal-pill">أعني</span>
+      </div>
+      <div class="examples-grid">
+        <div class="ex-block">
+          <span class="ex-num">مثال ١</span>
+          <span class="p1">كان الطالب مجتهداً، </span><span class="kw tafsiria">أي</span><span class="p2"> كان يواظب على الدراسة ويؤدّي واجباته.</span>
+        </div>
+        <div class="ex-block">
+          <span class="ex-num">مثال ٢</span>
+          <span class="p1">الرياضة نافعة، </span><span class="kw tafsiria">يعني</span><span class="p2"> أنّها تقوّي الجسم وتحمي من الأمراض.</span>
+        </div>
+        <div class="ex-block">
+          <span class="ex-num">مثال ٣</span>
+          <span class="p1">هو وفيٌّ، </span><span class="kw tafsiria">بمعنى</span><span class="p2"> أنّه لا يُخذل أصدقاءَه في المواقف الصعبة.</span>
+        </div>
+        <div class="ex-block">
+          <span class="ex-num">مثال ٤</span>
+          <span class="p1">قرأ الكتاب كاملاً، </span><span class="kw tafsiria">أعني</span><span class="p2"> لم يترك صفحة واحدة دون قراءة.</span>
+        </div>
+        <div class="ex-block">
+          <span class="ex-num">مثال ٥</span>
+          <span class="p1">الطعام صحيّ، </span><span class="kw tafsiria">أي</span><span class="p2"> أنّه يُعطي الجسم ما يحتاجه من فيتامينات ومعادن.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="rel-card sabab">
+      <div class="rel-header">
+        <div class="rel-icon">⚡</div>
+        <div>
+          <div class="rel-title">ثالثاً: علاقة السبب والنتيجة</div>
+        </div>
+        <span class="rel-num">٣ من ٥</span>
+      </div>
+      <div class="rel-def">جملتان: الأولى تذكر <strong>السبب</strong>، والثانية تذكر <strong>النتيجة المترتّبة عليه</strong>. وقد تُذكر النتيجة أوّلاً والسبب بعدها أحياناً.</div>
+      <div class="signal-pills">
+        <span class="signal-pill">لذلك</span>
+        <span class="signal-pill">ولهذا</span>
+        <span class="signal-pill">فـ</span>
+        <span class="signal-pill">مما أدّى إلى</span>
+        <span class="signal-pill">فنتيجةً لذلك</span>
+        <span class="signal-pill">وبالتالي</span>
+      </div>
+      <div class="examples-grid">
+        <div class="ex-block">
+          <span class="ex-num">مثال ١</span>
+          <span class="p1">أهمل الطالب دراسته، </span><span class="kw sabab">لذلك</span><span class="p2"> رسب في الاختبار.</span>
+        </div>
+        <div class="ex-block">
+          <span class="ex-num">مثال ٢</span>
+          <span class="p1">هطلت الأمطار بغزارة، </span><span class="kw sabab">فنتيجةً لذلك</span><span class="p2"> فاضت الأودية.</span>
+        </div>
+        <div class="ex-block">
+          <span class="ex-num">مثال ٣</span>
+          <span class="p1">تمرّن الرياضي كلّ يوم، </span><span class="kw sabab">ولهذا</span><span class="p2"> فاز بالبطولة.</span>
+        </div>
+        <div class="ex-block">
+          <span class="ex-num">مثال ٤</span>
+          <span class="p1">نام الطفل متأخّراً، </span><span class="kw sabab">وبالتالي</span><span class="p2"> استيقظ متعباً في الصباح.</span>
+        </div>
+        <div class="ex-block">
+          <span class="ex-num">مثال ٥</span>
+          <span class="p1">قطع شجرةً كانت تُظلّله، </span><span class="kw sabab">مما أدّى إلى</span><span class="p2"> تعرّضه للشمس الحارقة.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="rel-card tafsel">
+      <div class="rel-header">
+        <div class="rel-icon">📋</div>
+        <div>
+          <div class="rel-title">رابعاً: تفصيل بعد إجمال</div>
+        </div>
+        <span class="rel-num">٤ من ٥</span>
+      </div>
+      <div class="rel-def">يُبدأ بجملة <strong>مجملة (عامة وشاملة)</strong>، ثم تأتي بعدها جمل تُفصّل أجزاءها أو مكوّناتها واحدةً واحدة. التسلسل: عامّ ← خاصّ.</div>
+      <div class="signal-pills">
+        <span class="signal-pill">فمنها</span>
+        <span class="signal-pill">أوّلاً</span>
+        <span class="signal-pill">ثانياً</span>
+        <span class="signal-pill">كذلك</span>
+        <span class="signal-pill">وأيضاً</span>
+      </div>
+      <div class="examples-grid">
+        <div class="ex-block">
+          <span class="ex-num">مثال ١</span>
+          <span class="p1">للصحّة أسبابٌ كثيرة: </span><span class="p2"><span class="kw tafsel">فمنها</span> التغذية الجيّدة، <span class="kw tafsel">ومنها</span> ممارسة الرياضة، <span class="kw tafsel">ومنها</span> الراحة الكافية.</span>
+        </div>
+        <div class="ex-block">
+          <span class="ex-num">مثال ٢</span>
+          <span class="p1">زرتُ أماكن جميلة في عُمان: </span><span class="p2"><span class="kw tafsel">أوّلاً</span> مسقط العريقة، <span class="kw tafsel">وثانياً</span> نزوى التاريخية، <span class="kw tafsel">وثالثاً</span> صلالة الخضراء.</span>
+        </div>
+        <div class="ex-block">
+          <span class="ex-num">مثال ٣</span>
+          <span class="p1">اشتمل البرنامج على فعاليات متنوّعة: </span><span class="p2"><span class="kw tafsel">منها</span> التمثيل المسرحي، والقراءة الجهرية، والمسابقات الثقافية.</span>
+        </div>
+        <div class="ex-block">
+          <span class="ex-num">مثال ٤</span>
+          <span class="p1">أحبّ الحيوانات: </span><span class="p2"><span class="kw tafsel">فمنها</span> الأسد الملك، <span class="kw tafsel">ومنها</span> الدلفين الذكي، <span class="kw tafsel">ومنها</span> النسر الشامخ.</span>
+        </div>
+        <div class="ex-block">
+          <span class="ex-num">مثال ٥</span>
+          <span class="p1">تتميّز مدرستنا بمرافق رائعة: </span><span class="p2"><span class="kw tafsel">أوّلاً</span> مكتبة ضخمة، <span class="kw tafsel">وثانياً</span> ملعبٌ واسع، <span class="kw tafsel">وثالثاً</span> مختبرٌ متطوّر.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="rel-card ijmal">
+      <div class="rel-header">
+        <div class="rel-icon">🏁</div>
+        <div>
+          <div class="rel-title">خامساً: إجمال بعد تفصيل</div>
+        </div>
+        <span class="rel-num">٥ من ٥</span>
+      </div>
+      <div class="rel-def">يُبدأ بجمل تفصيلية متعدّدة، ثم تأتي جملة أخيرة <strong>تلخّص كلّ ما سبق في خلاصة مجملة</strong>. التسلسل: خاصّ ← عامّ.</div>
+      <div class="signal-pills">
+        <span class="signal-pill">باختصار</span>
+        <span class="signal-pill">وهكذا</span>
+        <span class="signal-pill">خلاصة القول</span>
+        <span class="signal-pill">وبهذا</span>
+        <span class="signal-pill">وبذلك</span>
+      </div>
+      <div class="examples-grid">
+        <div class="ex-block">
+          <span class="ex-num">مثال ١</span>
+          <span class="p2">درس سالم بجدّ، وأدّى واجباته، وحضر الدروس دائماً —</span> <span class="kw ijmal">وباختصار</span><span class="p1"> كان طالباً متميّزاً.</span>
+        </div>
+        <div class="ex-block">
+          <span class="ex-num">مثال ٢</span>
+          <span class="p2">شارك في الأنشطة، وساعد زملاءه، وأعان المحتاجين —</span> <span class="kw ijmal">وهكذا</span><span class="p1"> كان نموذجاً للإنسان المتعاون.</span>
+        </div>
+        <div class="ex-block">
+          <span class="ex-num">مثال ٣</span>
+          <span class="p2">تشرب الماء بكميات كافية، وتنام مبكّراً، وتتجنّب الوجبات الضارة —</span> <span class="kw ijmal">وخلاصة القول</span><span class="p1"> تعيش حياةً صحيّة.</span>
+        </div>
+        <div class="ex-block">
+          <span class="ex-num">مثال ٤</span>
+          <span class="p2">صبر على الشدائد، وتحمّل الأذى، ولم ييأس قطّ —</span> <span class="kw ijmal">وبهذا</span><span class="p1"> أثبت أنّه إنسانٌ قويّ الإرادة.</span>
+        </div>
+        <div class="ex-block">
+          <span class="ex-num">مثال ٥</span>
+          <span class="p2">قرأ كثيراً، وكتب يوميّاً، واستمع لكبار الأدباء —</span> <span class="kw ijmal">وبذلك</span><span class="p1"> أصبح كاتباً بارزاً.</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /lesson -->
+
+  <!-- ═══════════════ COMPARE ═══════════════ -->
+  <div id="tab-compare" class="section">
+    <div class="comp-wrap">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>العلاقة</th>
+            <th>المعنى الجوهري</th>
+            <th>كلمات الربط</th>
+            <th>السؤال الكاشف</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="rname" style="color:var(--c-taleeliya)">التعليلية</span></td>
+            <td>الجملة الثانية تذكر السبب أو العلّة</td>
+            <td>لأنّ، كي، إذ، حتى، لـِ</td>
+            <td>لماذا حدث هذا؟</td>
+          </tr>
+          <tr>
+            <td><span class="rname" style="color:var(--c-tafsiria)">التفسيرية</span></td>
+            <td>الجملة الثانية تُعيد شرح الأولى</td>
+            <td>أي، يعني، بمعنى، أعني</td>
+            <td>ماذا تقصد تحديداً؟</td>
+          </tr>
+          <tr>
+            <td><span class="rname" style="color:var(--c-sabab)">سبب ونتيجة</span></td>
+            <td>السبب أوّلاً ثم النتيجة المترتّبة</td>
+            <td>لذلك، ولهذا، فـ، وبالتالي</td>
+            <td>ما الذي ترتّب على ذلك؟</td>
+          </tr>
+          <tr>
+            <td><span class="rname" style="color:var(--c-tafsel)">تفصيل بعد إجمال</span></td>
+            <td>جملة عامة ثم تفاصيلها</td>
+            <td>فمنها، أوّلاً، ثانياً، وأيضاً</td>
+            <td>ما هي التفاصيل؟</td>
+          </tr>
+          <tr>
+            <td><span class="rname" style="color:var(--c-ijmal)">إجمال بعد تفصيل</span></td>
+            <td>تفاصيل ثم خلاصة شاملة</td>
+            <td>باختصار، وهكذا، خلاصة القول</td>
+            <td>ما الخلاصة من كلّ هذا؟</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note-box">
+      <strong>تنبيه مهم — الفرق بين التعليلية والسبب والنتيجة:</strong><br>
+      في <strong>التعليلية</strong>: نُعطى فعلٌ أو حدث، والجملة الثانية تُعلّله (السبب يأتي بعد الحدث مباشرةً بـ"لأنّ/كي/إذ").<br>
+      في <strong>سبب ونتيجة</strong>: يُذكر السبب أوّلاً صريحاً، ثم تأتي النتيجة بـ"لذلك/ولهذا". السبب والنتيجة كلاهما جملتان مستقلّتان واضحتان.
+    </div>
+  </div>
+
+  <!-- ═══════════════ QUIZ ═══════════════ -->
+  <div id="tab-quiz" class="section">
+    <div id="quiz-area"></div>
+  </div>
+
+  <!-- ═══════════════ SUMMARY ═══════════════ -->
+  <div id="tab-summary" class="section">
+    <div class="sum-grid">
+      <div class="sum-card sc1">
+        <div class="sum-title">🔍 التعليلية</div>
+        <div class="sum-def">الثانية تذكر السبب</div>
+        <div class="sum-keys">
+          <span class="sum-key">لأنّ</span>
+          <span class="sum-key">كي</span>
+          <span class="sum-key">إذ</span>
+          <span class="sum-key">حتى</span>
+        </div>
+        <div class="sum-ex">أجيد الرسمَ <strong>لأنّني</strong> مارستُه كثيراً.</div>
+      </div>
+      <div class="sum-card sc2">
+        <div class="sum-title">💡 التفسيرية</div>
+        <div class="sum-def">الثانية تشرح الأولى</div>
+        <div class="sum-keys">
+          <span class="sum-key">أي</span>
+          <span class="sum-key">يعني</span>
+          <span class="sum-key">بمعنى</span>
+        </div>
+        <div class="sum-ex">هو صادق، <strong>أي</strong> لا يكذب قطّ.</div>
+      </div>
+      <div class="sum-card sc3">
+        <div class="sum-title">⚡ سبب ونتيجة</div>
+        <div class="sum-def">سبب ← نتيجة</div>
+        <div class="sum-keys">
+          <span class="sum-key">لذلك</span>
+          <span class="sum-key">ولهذا</span>
+          <span class="sum-key">وبالتالي</span>
+        </div>
+        <div class="sum-ex">نام متأخّراً، <strong>لذلك</strong> تأخّر عن المدرسة.</div>
+      </div>
+      <div class="sum-card sc4">
+        <div class="sum-title">📋 تفصيل بعد إجمال</div>
+        <div class="sum-def">عامّ ← تفاصيل</div>
+        <div class="sum-keys">
+          <span class="sum-key">فمنها</span>
+          <span class="sum-key">أوّلاً</span>
+          <span class="sum-key">ثانياً</span>
+        </div>
+        <div class="sum-ex">أحبّ الرياضات: <strong>فمنها</strong> السباحة والجري.</div>
+      </div>
+      <div class="sum-card sc5">
+        <div class="sum-title">🏁 إجمال بعد تفصيل</div>
+        <div class="sum-def">تفاصيل ← خلاصة</div>
+        <div class="sum-keys">
+          <span class="sum-key">باختصار</span>
+          <span class="sum-key">وهكذا</span>
+          <span class="sum-key">خلاصة القول</span>
+          <span class="sum-key">وبذلك</span>
+        </div>
+        <div class="sum-ex">صبر واجتهد وأخلص، <strong>وباختصار</strong> كان إنساناً رائعاً.</div>
+      </div>
+    </div>
+    <button class="sum-start-btn" onclick="showTab('quiz');resetQuiz();">ابدأ التدريبات الآن ✏️</button>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+const questions = [
+  // ─── MCQ ───
+  {type:'mcq', text:'ما نوع العلاقة في الجملتين:', sentence:'سقط المطر غزيراً، <span style="color:#922b21;font-weight:700;">لذلك</span> امتلأت الخزّانات.',
+   opts:['تعليلية','تفسيرية','سبب ونتيجة','إجمال بعد تفصيل'], ans:2,
+   explain:'كلمة "لذلك" تدلّ على أنّ امتلاء الخزّانات نتيجةٌ مترتّبة على سقوط المطر — علاقة سبب ونتيجة.'},
+  {type:'mcq', text:'أيّ الجمل الآتية تمثّل علاقةً تعليلية؟',
+   opts:['هو هادئ، أي لا يغضب أبداً.','اجتهد في دراسته، لذلك نجح.','خرج مبكّراً كي يُدرك الحافلة.','للمدرسة مرافق: فمنها الملعب والمكتبة.'], ans:2,
+   explain:'"كي" أداة تعليل تبيّن الغرض والسبب — والجملة تُجيب عن "لماذا خرج مبكّراً؟".'},
+  {type:'mcq', text:'ما نوع العلاقة في:', sentence:'كان الطالب مجتهداً، <span style="color:#0e6655;font-weight:700;">أي</span> كان يواظب على الدراسة ويؤدّي واجباته.',
+   opts:['تعليلية','تفسيرية','سبب ونتيجة','تفصيل بعد إجمال'], ans:1,
+   explain:'"أي" أداة تفسير — الجملة الثانية تُوضّح معنى الجملة الأولى بكلمات مختلفة دون إضافة معلومة جديدة.'},
+  {type:'mcq', text:'في الفقرة:', sentence:'أحبّ عُمان وطني: فمنها جبالُها الشامخة، وسواحلُها الجميلة، وصحاراؤها الواسعة.',
+   opts:['سبب ونتيجة','تفصيل بعد إجمال','تعليلية','تفسيرية'], ans:1,
+   explain:'بُدئ بجملة مجملة "أحبّ عُمان" ثم فُصّلت مكوّناتها بـ"فمنها" — تفصيل بعد إجمال.'},
+  {type:'mcq', text:'أيّ الجمل تمثّل إجمالاً بعد تفصيل؟',
+   opts:['نام باكراً ولهذا استيقظ نشيطاً.','للمدرسة مرافق: فمنها المكتبة والملعب.','قرأ كثيراً وكتب يومياً وهكذا أصبح كاتباً.','القرار صعب أي يحتاج تفكيراً عميقاً.'], ans:2,
+   explain:'جاءت التفاصيل أوّلاً (قرأ كثيراً، كتب يوميّاً) ثم "وهكذا" جاء بالخلاصة — إجمال بعد تفصيل.'},
+  {type:'mcq', text:'ما أداة الربط المناسبة للعلاقة التفسيرية؟',
+   opts:['لذلك','لأنّ','أي','فمنها'], ans:2,
+   explain:'"أي" هي أداة العلاقة التفسيرية لأنّها تُعيد الشرح والتوضيح.'},
+  {type:'mcq', text:'ما نوع العلاقة في:', sentence:'غاب خالد عن الاختبار <span style="color:#6c3483;font-weight:700;">إذ</span> كان مريضاً.',
+   opts:['إجمال بعد تفصيل','تفسيرية','سبب ونتيجة','تعليلية'], ans:3,
+   explain:'"إذ" تُذكر لبيان السبب والعلّة — الغياب تعلّل بالمرض.'},
+  {type:'mcq', text:'أيّ الجمل تمثّل تفصيلاً بعد إجمال؟',
+   opts:['نام متأخّراً ولهذا تعب.','الرياضة مفيدة أي تُقوّي البدن.','تتميّز مدرستنا: فمنها مكتبة ضخمة وملعب واسع.','صبر وجاهد وبذلك نجح.'], ans:2,
+   explain:'"تتميّز مدرستنا" جملة مجملة، ثم "فمنها" فصّلت المميّزات — تفصيل بعد إجمال.'},
+  {type:'mcq', text:'ما نوع العلاقة في:', sentence:'تمرّن الرياضي كلّ يوم، <span style="color:#922b21;font-weight:700;">ولهذا</span> فاز بالبطولة.',
+   opts:['تعليلية','تفسيرية','سبب ونتيجة','تفصيل بعد إجمال'], ans:2,
+   explain:'"ولهذا" تربط السبب (التمرين اليومي) بنتيجته (الفوز بالبطولة) — علاقة سبب ونتيجة.'},
+  {type:'mcq', text:'في الجملة:', sentence:'الطالب المجتهد يستحقّ الجائزة، <span style="color:#0e6655;font-weight:700;">بمعنى</span> أنّ من يسعى بجدّ يُكافأ.',
+   opts:['تعليلية','تفسيرية','سبب ونتيجة','تفصيل بعد إجمال'], ans:1,
+   explain:'"بمعنى" أداة تفسير — الجملة الثانية تُوضّح الجملة الأولى بأسلوب مختلف.'},
+  {type:'mcq', text:'أيّ كلمة ربط تناسب علاقة الإجمال بعد التفصيل؟',
+   opts:['لأنّ','فمنها','باختصار','أي'], ans:2,
+   explain:'"باختصار" تُستخدم لتلخيص تفاصيل سابقة في جملة مجملة — وهذا هو الإجمال بعد التفصيل.'},
+  {type:'mcq', text:'ما نوع العلاقة في:', sentence:'تعبت عضلاته، وتصبّب عرقُه، وأجهد نفسه — <span style="color:#1a3a5c;font-weight:700;">وهكذا</span> أدرك معنى التدريب الحقيقي.',
+   opts:['تعليلية','تفصيل بعد إجمال','إجمال بعد تفصيل','سبب ونتيجة'], ans:2,
+   explain:'ذُكرت التفاصيل أوّلاً ثم جاءت "وهكذا" بالخلاصة — إجمال بعد تفصيل.'},
+
+  // ─── TRUE/FALSE ───
+  {type:'tf', text:'الجملتان: "الكتاب نافع، <em>أي</em> يُعيننا على التعلّم والفهم." تمثّلان علاقةً تعليلية.', ans:false,
+   explain:'"أي" أداة تفسير لا تعليل. الجملة علاقة تفسيرية لأنّ الثانية تُوضّح معنى الأولى.'},
+  {type:'tf', text:'"الرياضي صبر واجتهد وتحمّل — وباختصار كان بطلاً حقيقياً." هذه الجملة تمثّل إجمالاً بعد تفصيل.', ans:true,
+   explain:'التفاصيل جاءت أوّلاً ثم "وباختصار" لخّصتها — إجمال بعد تفصيل.'},
+  {type:'tf', text:'كلمة "يعني" أداةٌ للربط في علاقة السبب والنتيجة.', ans:false,
+   explain:'"يعني" أداةٌ للعلاقة التفسيرية لأنّها تُعيد شرح ما قبلها.'},
+  {type:'tf', text:'"خرج مبكّراً <em>كي</em> يُدرك الحافلة." هذه الجملة تمثّل علاقة سبب ونتيجة.', ans:false,
+   explain:'"كي" أداة تعليل تدلّ على الغرض — العلاقة تعليلية وليست سبباً ونتيجةً.'},
+  {type:'tf', text:'في علاقة التفصيل بعد الإجمال، تأتي الجملة العامة في البداية.', ans:true,
+   explain:'نعم، يُبدأ بالجملة المجملة (العامة الشاملة) ثم تأتي الجمل التفصيلية — وهذا هو تفصيل بعد إجمال.'},
+  {type:'tf', text:'"لم يتناول الدواء، <em>ولهذا</em> لم يتحسّن حاله." تمثّل هذه الجملتان علاقةً تعليلية.', ans:false,
+   explain:'"ولهذا" تدلّ على أنّ عدم التحسّن نتيجةٌ لعدم تناول الدواء — علاقة سبب ونتيجة.'},
+  {type:'tf', text:'كلمة "لأنّ" تُستخدم في العلاقة التفسيرية.', ans:false,
+   explain:'"لأنّ" تُستخدم في العلاقة التعليلية لبيان السبب والعلّة.'},
+  {type:'tf', text:'"أكل بانتظام، ونام جيّداً، وابتعد عن التوتّر — وخلاصة القول اهتمّ بصحّته." هذه إجمالٌ بعد تفصيل.', ans:true,
+   explain:'ذُكرت التفاصيل (أكل — نام — ابتعد) ثم "خلاصة القول" جاءت بالجملة المجملة.'},
+  {type:'tf', text:'"درست بجدّ لأنّي أريد النجاح." هذه الجملة تمثّل علاقةً تعليلية.', ans:true,
+   explain:'"لأنّي" تُبيّن سبب الدراسة بجدّ (إرادة النجاح) — علاقة تعليلية.'},
+
+  // ─── FILL (treated as MCQ with type fill) ───
+  {type:'mcq', text:'اختر الأداة المناسبة لتكملة الجملة الآتية بعلاقة سبب ونتيجة:', sentence:'"تغيّبت كثيراً عن الدروس، _______ تراكمت عليّ الدروس."',
+   opts:['أي','ولهذا','فمنها','باختصار'], ans:1,
+   explain:'"ولهذا" هي أداة ربط سبب بنتيجته — التغيّب (سبب) أدّى إلى تراكم الدروس (نتيجة).'},
+  {type:'mcq', text:'اختر الأداة المناسبة لتكملة جملة التفسير:', sentence:'"الطفل نشيط، _______ لا يجلس دقيقة واحدة في مكانه."',
+   opts:['لذلك','لأنّ','أي','وباختصار'], ans:2,
+   explain:'"أي" هي أداة التفسير — الجملة الثانية تُوضّح معنى "نشيط" بصورة أوضح.'},
+  {type:'mcq', text:'أيّ الأداتين تُستخدم في التعليلية وليس في سبب ونتيجة؟',
+   opts:['لذلك وولهذا','كي وإذ','فمنها وأوّلاً','باختصار وهكذا'], ans:1,
+   explain:'"كي" و"إذ" أدوات تعليل (تبيّن السبب قبل الحدث). أمّا "لذلك وولهذا" فهي لربط النتيجة بسببها.'},
+];
+
+let cur = 0, score = 0, answered = [];
+
+function showTab(t) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-'+t).classList.add('active');
+  const labels = {lesson:'الدرس', compare:'المقارنة', quiz:'التدريبات', summary:'الملخص'};
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    if(b.textContent.includes(labels[t])) b.classList.add('active');
+  });
+}
+
+function resetQuiz() {
+  cur = 0; score = 0; answered = [];
+  render();
+}
+
+function render() {
+  const area = document.getElementById('quiz-area');
+  const total = questions.length;
+  const done = answered.filter(a => a !== undefined).length;
+  const pct = Math.round(done / total * 100);
+
+  if(done === total && answered[cur] !== undefined) {
+    const sp = Math.round(score/total*100);
+    let stars = sp >= 90 ? '⭐⭐⭐' : sp >= 70 ? '⭐⭐' : '⭐';
+    let msg = sp >= 90 ? 'ممتاز! أتقنتَ العلاقات بين الجمل إتقاناً رائعاً.' :
+              sp >= 70 ? 'جيّد جداً! راجع الأمثلة التي أخطأت فيها وستصل للمثالية.' :
+              sp >= 50 ? 'جيّد! أعِد قراءة الدرس والأمثلة ثم حاول من جديد.' :
+              'لا بأس، راجع الدرس مرّةً أخرى ثم أعِد التدريب.';
+    let correct = answered.filter((a,i) => checkAns(i,a)).length;
+    let wrong = total - correct;
+    area.innerHTML = `<div class="result-wrap">
+      <div class="result-big">${score}</div>
+      <div class="result-of">من ${total} درجة</div>
+      <div class="result-stars">${stars}</div>
+      <div style="font-size:18px;font-weight:700;color:var(--primary);margin-bottom:8px;">${sp}%</div>
+      <div class="result-msg">${msg}</div>
+      <div class="result-breakdown">
+        <div class="breakdown-item"><div class="breakdown-val" style="color:var(--success)">${correct}</div><div class="breakdown-label">إجابة صحيحة</div></div>
+        <div class="breakdown-item"><div class="breakdown-val" style="color:var(--error)">${wrong}</div><div class="breakdown-label">إجابة خاطئة</div></div>
+        <div class="breakdown-item"><div class="breakdown-val">${total}</div><div class="breakdown-label">إجمالي الأسئلة</div></div>
+      </div>
+      <button class="restart-btn" onclick="resetQuiz()">🔄 أعِد التدريب</button>
+      <button class="restart-btn sec" onclick="showTab('lesson')">📖 ارجع للدرس</button>
+    </div>`;
+    return;
+  }
+
+  const q = questions[cur];
+  const isAns = answered[cur] !== undefined;
+  const letters = ['أ','ب','ج','د'];
+
+  let inputHTML = '';
+  if(q.type === 'mcq') {
+    inputHTML = `<div class="opts-grid">${q.opts.map((o,i)=>{
+      let cls = 'opt-btn';
+      if(isAns){ if(i===q.ans) cls+=' correct'; else if(answered[cur]===i && i!==q.ans) cls+=' wrong'; }
+      return `<button class="${cls}" ${isAns?'disabled':''} onclick="answerMCQ(${i})"><span class="opt-letter">${letters[i]}</span>${o}</button>`;
+    }).join('')}</div>`;
+  } else {
+    let tCls = 'tf-btn', fCls = 'tf-btn';
+    if(isAns){ tCls += q.ans?' correct':' wrong'; fCls += !q.ans?' correct':' wrong'; }
+    inputHTML = `<div class="tf-row">
+      <button class="${tCls}" ${isAns?'disabled':''} onclick="answerTF(true)">✓ صحيح</button>
+      <button class="${fCls}" ${isAns?'disabled':''} onclick="answerTF(false)">✗ خطأ</button>
+    </div>`;
+  }
+
+  let fbHTML = '';
+  if(isAns) {
+    const correct = checkAns(cur, answered[cur]);
+    fbHTML = `<div class="feedback ${correct?'correct':'wrong'}">
+      ${correct ? '✓ إجابة صحيحة — ' : '✗ '} ${q.explain}
+    </div>`;
+  }
+
+  const sentenceHTML = q.sentence ? `<div class="q-sentence">${q.sentence}</div>` : '';
+  const badgeType = q.type === 'mcq' ? 'badge-mcq' : 'badge-tf';
+  const badgeLabel = q.type === 'mcq' ? 'اختيار من متعدد' : 'صح أو خطأ';
+
+  area.innerHTML = `
+    <div class="quiz-header-bar">
+      <div><div class="quiz-score-big">${score} / ${total}</div><div class="quiz-score-label">النتيجة الحالية</div></div>
+      <div class="prog-track"><div class="prog-fill" style="width:${pct}%"></div></div>
+      <div class="prog-pct">${pct}%</div>
+    </div>
+    <div class="q-card">
+      <div class="q-meta">
+        <span class="badge ${badgeType}">${badgeLabel}</span>
+        <span class="q-num">سؤال ${cur+1} من ${total}</span>
+      </div>
+      <div class="q-text">${q.text}</div>
+      ${sentenceHTML}
+      ${inputHTML}
+      ${fbHTML}
+    </div>
+    <div class="nav-row">
+      <button class="nav-btn" onclick="goQ(cur-1)" ${cur===0?'disabled':''}>◀ السابق</button>
+      <span class="q-counter">${done} من ${total} مُجاب</span>
+      <button class="nav-btn primary-btn" onclick="goQ(cur+1)" ${cur===questions.length-1?'disabled':''}>التالي ▶</button>
+    </div>
+  `;
+}
+
+function checkAns(i, a) {
+  const q = questions[i];
+  return q.type === 'mcq' ? a === q.ans : a === q.ans;
+}
+
+function answerMCQ(i) {
+  if(answered[cur] !== undefined) return;
+  answered[cur] = i;
+  if(checkAns(cur, i)) score++;
+  render();
+}
+function answerTF(v) {
+  if(answered[cur] !== undefined) return;
+  answered[cur] = v;
+  if(checkAns(cur, v)) score++;
+  render();
+}
+function goQ(n) {
+  if(n < 0 || n >= questions.length) return;
+  cur = n; render();
+}
+
+resetQuiz();
+</script>
+</body>
+</html>
